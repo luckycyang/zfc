@@ -1,16 +1,7 @@
 const std = @import("std");
 
-pub fn build(b: *std.Build) void {
-    const target = b.standardTargetOptions(.{});
-    const optimize = b.standardOptimizeOption(.{});
+// for build.zig
+pub const zfc = @import("zfc/zfc.zig");
 
-    const mod_zfc = b.createModule(.{
-        .root_source_file = b.path("zfc/zfc.zig"),
-        .target = target,
-        .optimize = optimize,
-    });
-    b.modules.put(b.dupe("zfc"), mod_zfc) catch @panic("OOM");
-
-    const zfc = b.addLibrary(.{ .name = "zfc", .root_module = mod_zfc });
-    b.installArtifact(zfc);
-}
+// nothing, this a package for zig build, not that lib for app
+pub fn build(_: *std.Build) void {}
