@@ -9,6 +9,7 @@ pub fn build(b: *std.Build) void {
         .target = target,
         .optimize = optimize,
     });
+    b.modules.put(b.dupe("zfc", mod_zfc)) catch @panic("OOM");
 
     const zfc = b.addLibrary(.{ .name = "zfc", .root_module = mod_zfc });
     b.installArtifact(zfc);
