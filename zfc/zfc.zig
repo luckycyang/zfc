@@ -9,3 +9,6 @@ pub const Bar = struct {
         return "bar";
     }
 };
+
+pub const CBuild = @import("CBuild.zig");
+pub const CompileCommand = @import("CompileCommand.zig");
