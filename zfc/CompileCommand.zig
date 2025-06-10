@@ -10,7 +10,7 @@ pub fn fromLinkObject(o: *LinkObject) CompileCommand {
     switch (o.*) {
         .c_source_file => |i| std.debug.print("{any}\r\n", .{i}),
         .c_source_files => |i| std.debug.print("{any}\r\n", .{i}),
-        _ => {},
+        else => {},
     }
     return ans;
 }
